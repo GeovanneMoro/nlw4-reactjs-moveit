@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, ReactNode } from 'react';
 import Cookies from 'js-cookie';
 
 import LevelUpModal from '../components/LevelUpModal';
@@ -11,7 +11,7 @@ interface Challenge {
   amount: number;
 }
 
-interface ChallengeContextData {
+interface ChallengesContextData {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
@@ -25,20 +25,15 @@ interface ChallengeContextData {
 }
 
 interface ChallengesProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
   level: number;
   currentExperience: number;
   challengesCompleted: number;
 }
 
-export const ChallengesContext = React.createContext(
-  {} as ChallengeContextData,
-);
+export const ChallengesContext = createContext({} as ChallengesContextData);
 
-const ChallengesProvider: React.FC = ({
-  children,
-  ...rest
-}: ChallengesProviderProps) => {
+const ChallengesProvider = ({ children, ...rest }: ChallengesProviderProps) => {
   const [level, setLevel] = React.useState(rest.level ?? 1);
   const [currentExperience, setCurrentExperience] = React.useState(
     rest.currentExperience ?? 0,
