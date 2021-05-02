@@ -14,7 +14,7 @@
 <br>
 
 <p align="center">
-  <img alt="Moveit" src="public/logo-full.svg" width="120px">
+  <img alt="Moveit" src="public/logo-full.svg" width="200px">
 </p>
 
 ## 💻 Project
